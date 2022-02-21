@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 
+# Convert menu items in input file to dictionary.
 def read_item_list(item_file):
     file_contents = open(item_file, 'r')
     item_list = []
@@ -20,10 +21,8 @@ def main(args):
     item_file = args.item_file
 
     item_dict = read_item_list(item_file)
-    print(item_dict)
-    print(item_dict['brend_coffee_L'])
-    print(item_dict['brend_coffee_M'])
-    print(item_dict['brend_coffee_S'])
+    for key, value in item_dict.items():
+        print(key, value+'yen')
 
 
 if __name__ == '__main__':
