@@ -16,13 +16,28 @@ def read_item_list(item_file):
 
     return item_dict
 
+def show_items(item_dict):
+    for key, value in item_dict.items():
+        print(key, value+'yen')
+
+def assign_item_id(item_dict):
+    id_to_item = {}
+    for num, key in enumerate(item_dict.keys()):
+        id_to_item[num] = key
+    print(id_to_item)
+
 
 def main(args):
     item_file = args.item_file
 
+    # Read items as dictionary formula.
     item_dict = read_item_list(item_file)
-    for key, value in item_dict.items():
-        print(key, value+'yen')
+    show_items(item_dict)
+    assign_item_id(item_dict)
+
+    # input loop
+    while True:
+        inp = input('')
 
 
 if __name__ == '__main__':
