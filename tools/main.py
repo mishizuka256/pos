@@ -25,6 +25,7 @@ def assign_item_id(item_dict):
     for num, key in enumerate(item_dict.keys()):
         id_to_item[num] = key
     print(id_to_item)
+    return id_to_item
 
 
 def main(args):
@@ -33,11 +34,22 @@ def main(args):
     # Read items as dictionary formula.
     item_dict = read_item_list(item_file)
     show_items(item_dict)
-    assign_item_id(item_dict)
+    item_id_dict = assign_item_id(item_dict)
 
     # input loop
     while True:
-        inp = input('')
+        try:
+            inp = input('Input exit to exit.>>')
+            if inp == 'exit':
+                break
+            if inp.isdigit():
+                inp = int(inp)
+                # import pdb; pdb.set_trace()
+                if item_id_dict[inp] in item_dict:
+                    print(item_id_dict[inp])
+                    print(item_dict[item_id_dict[inp]])
+        except:
+            pass
 
 
 if __name__ == '__main__':
