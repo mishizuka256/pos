@@ -42,12 +42,19 @@ def main(args):
             inp = input('Input exit to exit.>>')
             if inp == 'exit':
                 break
-            if inp.isdigit():
+            elif inp == 'menu':
+                print('- MENU ' + '-' * 23)
+                show_items(item_dict)
+                print()
+                print(item_id_dict)
+                print('-' * 30)
+            elif inp.isdigit():
                 inp = int(inp)
                 # import pdb; pdb.set_trace()
                 if item_id_dict[inp] in item_dict:
                     print(item_id_dict[inp])
                     print(item_dict[item_id_dict[inp]])
+
         except:
             pass
 
